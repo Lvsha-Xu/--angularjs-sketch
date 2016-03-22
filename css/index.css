@@ -1,0 +1,45 @@
+body{
+	margin:0;
+	padding:0;
+	font-family: Arial;
+}
+*{
+	cursor: pointer;
+}
+li{
+	list-style: none;
+	padding-left: 10px;
+}
+#zuo{
+	position: absolute;
+	left:0;
+	top: 0;
+	bottom:0;
+	width: 20%;
+	background: url(../img/2.jpg) no-repeat center;
+	background-size: 100% 100%;
+	padding-top:20px;
+ }
+#you{
+	position: absolute;
+	right: 0;
+	top:0;
+	bottom:0;
+	width: 80%;
+}
+#sketch{
+	margin: 70px;
+	border:8px solid #000;
+}
+#gongju{
+	color: #fff;
+	list-style: 0;
+	font-size: 24px;
+}
+.active{
+	color: #f47000;
+}
+#kuan,#gao{
+	color: #fff;
+	font-size: 24px;
+}

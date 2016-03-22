@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="sketch">
+<head>
+	<meta charset="UTF-8">
+	<title>sketch 素描本</title>
+	<link rel="stylesheet" href="./css/index.css">
+	<script src="./js/angular.js"></script>
+	<script src="./js/index.js"></script>
+</head>
+<body ng-controller="sketchController">
+	<div id="zuo">
+		<span id="kuan">画布宽:</span>
+		<input ng-model="canvasWH.width"type="range" min="400" max="850" step="1">
+		<br>
+		<span id="gao">画布高:</span>
+		<input ng-model="canvasWH.height"type="range" min="400" max="800" step="1">
+		<ul id="gongju">
+			<li ng-repeat="(key, value) in tools" ng-click="settool(value)" ng-class="{active:value==tool}">
+				<span>{{key}}</span>
+			</li>
+			<li>
+				<div ng-class="{active:csState.style=='fill'}" ng-click="setStyle('fill')" >填充：</div>
+				<input type="color" ng-model="csState.fillStyle">
+			</li>
+			<li >
+				<div  ng-class="{active:csState.style=='stroke'}" ng-click="setStyle('stroke')">线的填充色：</div>
+				<input type="color" ng-model="csState.strokeStyle">
+			</li>
+			<li>
+				<div>线宽度</div>
+				<input type="range" min="1" max="30" step="1" ng-model="csState.lineWidth">
+			</li>
+			<li>
+				<div ng-click="newSketch()">新建</div>
+				<a ng-click="save($event)">保存</a>
+				<div>回退</div>
+			</li>
+		</ul>
+	</div>
+	<div id="you">
+		<canvas id="sketch" width="{{canvasWH.width}}" height="{{canvasWH.height}}"></canvas>
+	</div>
+</body>
+</html>
